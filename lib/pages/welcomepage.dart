@@ -1,9 +1,11 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:mirror_mirror/pages/roastpage.dart';
-import 'package:mirror_mirror/pages/complementpage.dart';
+
 import 'package:mirror_mirror/helpers/appcolors.dart';
 import 'package:mirror_mirror/helpers/appstrings.dart';
+
+import 'package:mirror_mirror/pages/complementpage.dart';
+import 'package:mirror_mirror/pages/roastpage.dart';
 
 class WelcomePage extends StatelessWidget {
   @override
@@ -40,7 +42,7 @@ class WelcomePage extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                const Text('Mirror, Mirror.',
+                const Text(AppStrings.title,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: AppColors.white,

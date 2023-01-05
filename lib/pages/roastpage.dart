@@ -1,10 +1,13 @@
-import 'package:flutter/material.dart';
 import 'dart:io';
-import 'package:camera/camera.dart';
-import 'package:mirror_mirror/helpers/appcolors.dart';
-import 'package:mirror_mirror/helpers/appstrings.dart';
-import 'package:mirror_mirror/helpers/appconstants.dart';
 
+import 'package:flutter/material.dart';
+import 'package:camera/camera.dart';
+
+import 'package:mirror_mirror/helpers/appcolors.dart';
+import 'package:mirror_mirror/helpers/appconstants.dart';
+import 'package:mirror_mirror/helpers/appstrings.dart';
+
+///Camera page where the user will be prompted for a photo to receive a roast.
 class RoastPage extends StatefulWidget {
   final List<CameraDescription> cameras;
   const RoastPage({
@@ -19,7 +22,8 @@ class RoastPage extends StatefulWidget {
 class _RoastScreenState extends State<RoastPage> {
   @override
   void initState() {
-    //we want to default to the front camera, which *should* be at index 1
+    //we want to default to the front camera, which *should* be at 
+    //index 1 if there is more than 1 camera on the device
     if (widget.cameras.length > 1) {
       selectedCam = 1;
     }
@@ -99,7 +103,7 @@ class _RoastScreenState extends State<RoastPage> {
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              GestureDetector(
+                              GestureDetector( //shutter button
                                   onTap: () async {
                                     await _initializeControllerFuture;
                                     var xFile = await _controller.takePicture();
