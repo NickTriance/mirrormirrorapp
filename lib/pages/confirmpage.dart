@@ -30,6 +30,7 @@ class ConfirmPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const SizedBox(height: 40),
+                    Spacer(),
                     const Text(AppStrings.confirmTitle,
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -41,7 +42,7 @@ class ConfirmPage extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                             horizontal: AppConstants.cameraPadding),
                         child: Image.file(image, fit: BoxFit.cover)),
-                    //todo: align to bottom
+                    Spacer(),
                     Positioned(
                       child: Align(
                         alignment: FractionalOffset.bottomCenter,
@@ -88,7 +89,8 @@ class ConfirmPage extends StatelessWidget {
                               ],
                             )),
                       ),
-                    )
+                    ),
+                    Spacer()
                   ],
                 ))
               ],
