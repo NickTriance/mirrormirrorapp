@@ -3,11 +3,13 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 
+import 'package:mirror_mirror/pages/confirmpage.dart';
+
 import 'package:mirror_mirror/helpers/appcolors.dart';
 import 'package:mirror_mirror/helpers/appconstants.dart';
 import 'package:mirror_mirror/helpers/appstrings.dart';
 
-///Camera page where the user will be prompted to submit a photo to be 
+///Camera page where the user will be prompted to submit a photo to be
 ///complemented
 class ComplementPage extends StatefulWidget {
   final List<CameraDescription> cameras; //need the cameras on the device
@@ -23,7 +25,7 @@ class ComplementPage extends StatefulWidget {
 class _ComplementScreenState extends State<ComplementPage> {
   @override
   void initState() {
-    //we want to default to the front camera, which *should* be at 
+    //we want to default to the front camera, which *should* be at
     //index 1 if there is more than 1 camera on the device
     if (widget.cameras.length > 1) {
       selectedCam = 1;
@@ -104,14 +106,30 @@ class _ComplementScreenState extends State<ComplementPage> {
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              GestureDetector( //take photo button
+                              GestureDetector(
+                                  //take photo button
                                   onTap: () async {
+                                    //take the picture
                                     await _initializeControllerFuture;
                                     var xFile = await _controller.takePicture();
-                                    setState(() {
-                                      //TODO: make this prompt and confirm before sending off to server
-                                      capturedImages.add(File(xFile.path));
-                                    });
+
+                                    //the camera package returns a
+                                    //cross-platform XFile, but we need to
+                                    //convert this to a regular file for later
+                                    //code
+                                    File? image = File(xFile.path);
+
+                                    //Dart gets mad if we don't check this.
+                                    if (!mounted) {
+                                      return;
+                                    }
+
+                                    //navigate to confirmation page
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                ConfirmPage(image: image)));
                                   },
                                   child: ClipOval(
                                       child: Container(

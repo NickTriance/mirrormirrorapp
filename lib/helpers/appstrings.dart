@@ -28,4 +28,10 @@ class AppStrings {
 
   ///title displayed at the top of the confirmation page
   static const String confirmTitle = "Look good?";
+
+  ///text to be displayed on the confirmation screen okay button
+  static const String confirmYesBtnTxt = "Yup, let's do it!";
+
+  ///text to be displayed on the confirmation screen back button
+  static const String confirmNoBtnTxt = "Nah, let's retake it.";
 }

@@ -8,6 +8,12 @@ class AppColors {
   ///The color of the Complement button on the main menu.
   static const Color compButton = Colors.green;
 
+  ///The color of the confirm screen's confirm button
+  static const Color confirmBtn = Colors.green;
+
+  ///The color of the confirm screen's cancel button
+  static const Color cancelBtn = Colors.red;
+
   ///The shade of white used in the app.
   static const Color white = Colors.white;
 

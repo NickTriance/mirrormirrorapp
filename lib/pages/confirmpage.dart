@@ -1,3 +1,4 @@
+import 'dart:ffi';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -39,7 +40,55 @@ class ConfirmPage extends StatelessWidget {
                     Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: AppConstants.cameraPadding),
-                        child: Image.file(image, fit: BoxFit.cover))
+                        child: Image.file(image, fit: BoxFit.cover)),
+                    //todo: align to bottom
+                    Positioned(
+                      child: Align(
+                        alignment: FractionalOffset.bottomCenter,
+                        child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                //cancel button.
+                                SizedBox(
+                                  height: 45,
+                                  width: 200,
+                                  child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                          backgroundColor: AppColors.cancelBtn),
+                                      onPressed: () {
+                                        //todo: go back to previous screen
+                                      },
+                                      child: const Text(
+                                          AppStrings.confirmNoBtnTxt,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: AppColors.white,
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold))),
+                                ),
+                                const SizedBox(width: 15),
+                                SizedBox(
+                                    height: 45,
+                                    width: 200,
+                                    child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                            backgroundColor:
+                                                AppColors.confirmBtn),
+                                        onPressed: () {},
+                                        child: const Text(
+                                          AppStrings.confirmYesBtnTxt,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: AppColors.white,
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold),
+                                        )))
+                              ],
+                            )),
+                      ),
+                    )
                   ],
                 ))
               ],
