@@ -1,16 +1,6 @@
-# mirrormirror
+# Mirror, Mirror.
 
-A new Flutter project.
+Mirror, Mirror. is an app I am working on where the user submits a photo of their face, and the app then uses that to generate a personalized complement or insult.
+This repository contains the code for the mobile portion of the app, which was created in Flutter. 
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
