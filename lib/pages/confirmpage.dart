@@ -1,15 +1,18 @@
-import 'dart:ffi';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 
 import 'package:mirror_mirror/helpers/appcolors.dart';
 import 'package:mirror_mirror/helpers/appconstants.dart';
+import 'package:mirror_mirror/helpers/appstates.dart';
 import 'package:mirror_mirror/helpers/appstrings.dart';
 
 class ConfirmPage extends StatelessWidget {
   final File image;
-  const ConfirmPage({Key? key, required this.image}) : super(key: key);
+  final AppState state;
+  const ConfirmPage({Key? key, required this.image, required this.state})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +62,7 @@ class ConfirmPage extends StatelessWidget {
                                       style: ElevatedButton.styleFrom(
                                           backgroundColor: AppColors.cancelBtn),
                                       onPressed: () {
-                                        //todo: go back to previous screen
+                                        Navigator.pop(context);
                                       },
                                       child: const Text(
                                           AppStrings.confirmNoBtnTxt,
@@ -95,5 +98,9 @@ class ConfirmPage extends StatelessWidget {
                 ))
               ],
             )));
+  }
+
+  void uploadImage() {
+    //todo: upload image to back-end for processing.
   }
 }

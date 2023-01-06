@@ -8,6 +8,7 @@ import 'package:mirror_mirror/pages/complementpage.dart';
 import 'package:mirror_mirror/pages/roastpage.dart';
 
 class WelcomePage extends StatelessWidget {
+  const WelcomePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

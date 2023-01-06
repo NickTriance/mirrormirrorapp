@@ -7,6 +7,7 @@ import 'package:mirror_mirror/pages/confirmpage.dart';
 
 import 'package:mirror_mirror/helpers/appcolors.dart';
 import 'package:mirror_mirror/helpers/appconstants.dart';
+import 'package:mirror_mirror/helpers/appstates.dart';
 import 'package:mirror_mirror/helpers/appstrings.dart';
 
 ///Camera page where the user will be prompted to submit a photo to be
@@ -129,7 +130,7 @@ class _ComplementScreenState extends State<ComplementPage> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                ConfirmPage(image: image)));
+                                                ConfirmPage(image: image, state: AppState.complement,)));
                                   },
                                   child: ClipOval(
                                       child: Container(

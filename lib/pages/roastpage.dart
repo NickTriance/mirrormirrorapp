@@ -7,6 +7,7 @@ import 'package:mirror_mirror/pages/confirmpage.dart';
 
 import 'package:mirror_mirror/helpers/appcolors.dart';
 import 'package:mirror_mirror/helpers/appconstants.dart';
+import 'package:mirror_mirror/helpers/appstates.dart';
 import 'package:mirror_mirror/helpers/appstrings.dart';
 
 ///Camera page where the user will be prompted for a photo to receive a roast.
@@ -127,8 +128,10 @@ class _RoastScreenState extends State<RoastPage> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) =>
-                                                ConfirmPage(image: image)));
+                                            builder: (context) => ConfirmPage(
+                                                  image: image,
+                                                  state: AppState.roast,
+                                                )));
                                   },
                                   child: ClipOval(
                                       child: Container(
@@ -137,7 +140,7 @@ class _RoastScreenState extends State<RoastPage> {
                                           color: AppColors.white,
                                           child: const Icon(
                                               Icons.camera_alt_rounded,
-                                              color: AppColors.black)))),
+                                              color: AppColors.black))))
                             ]))
                   ]))
             ])));
